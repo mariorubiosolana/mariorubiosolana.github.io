@@ -1,0 +1,1 @@
+function e(e){let t=e.target.closest?.(`a[href]`);if(!t||e.defaultPrevented)return;let n=new URL(t.href,location.href);if(n.origin===location.origin&&[`/`,`/index.html`].includes(n.pathname))try{sessionStorage.setItem(`skipIntroOnce`,`true`)}catch{}}document.addEventListener(`click`,e);
