@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio de Mario Rubio. Arquitectura y objetos seleccionados." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" />
     <title>Mario Rubio — Architecture</title>
     <script>
       // Decide before the first paint; project pages need no extra navigation code.
@@ -27,11 +30,11 @@
         }, 4000)
       })()
     </script>
-    <script type="module" crossorigin src="/assets/home-B34kFplw.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/ScrollTrigger-CLH03OHL.js">
-    <link rel="stylesheet" crossorigin href="/assets/ScrollTrigger-i7t37cf0.css">
+    <script type="module" crossorigin src="/assets/home-DrEgAQAk.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/project-navigation-6H-qxOen.js">
+    <link rel="stylesheet" crossorigin href="/assets/project-navigation-CQqU-ZkH.css">
   </head>
-  <body id="top">
+  <body id="top" class="home-page">
     <div class="site-intro" aria-hidden="true">
       <div class="site-intro__content">
         <div class="site-intro__line"></div>
@@ -40,113 +43,34 @@
     </div>
     <a class="skip-link" href="#main">Saltar al contenido</a>
     <header class="site-header">
-      <nav aria-label="Navegación principal">
-        <a href="#projects">PROJECTS</a>
-        <a href="#objects">OBJECTS</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
+      <a class="site-brand site-nav-link is-active" href="/" aria-current="page">MARIO RUBIO</a>
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a class="site-nav-link" href="/objects.html">OBJECTS</a>
+        <a class="site-nav-link" href="/info.html">INFO</a>
+        <a class="site-nav-link" href="/contact.html">CONTACT</a>
       </nav>
     </header>
     <main id="main">
-      <!-- HERO -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-composition">
-          <h1 id="hero-title">MARIO RUBIO</h1>
-          <p class="hero-subtitle">ARCHITECTURE</p>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
+      <!-- PROJECTS: the featured project leads the same continuous sequence. -->
       <section id="projects" aria-label="Proyectos seleccionados">
-        <article class="project project-line" aria-labelledby="line-title">
-          <div class="line-stage">
-            <div class="project-heading">
-              <p class="project-number">01</p>
-              <h2 id="line-title"><a href="/projects/the-line.html">THE LINE</a></h2>
-            </div>
-            <a class="project-media home-project-cover line-media" href="/projects/the-line.html"><img src="/images/p8/the-line-cover.jpg" alt="THE LINE — Ver proyecto" /></a>
-          </div>
+        <article class="home-project home-project--featured" data-project="the-line" data-country="ES" aria-labelledby="line-title">
+          <a class="featured-project-image" href="/projects/the-line.html"><img src="/images/p8/the-line-cover.jpg" alt="THE LINE — Ver proyecto" width="3367" height="2369" fetchpriority="high" decoding="async" /></a>
+          <h1 id="line-title" class="home-project-caption"><a href="/projects/the-line.html">THE LINE / <span class="project-country">ES</span></a></h1>
         </article>
-        <article class="project project-factory" aria-labelledby="factory-title">
-          <div class="project-heading">
-            <p class="project-number">02</p>
-            <h2 id="factory-title"><a href="/projects/villaverde.html">TRANSFORMACIÓN FÁBRICA DE CERVEZAS<span>VILLAVERDE</span></a></h2>
-          </div>
-          <a class="project-media home-project-cover factory-media" href="/projects/villaverde.html"><img src="/images/p7/cover.jpg" alt="Transformación fábrica de cervezas, Villaverde — Ver proyecto" width="1492" height="625" decoding="async" /></a>
+        <article class="home-project" data-project="villaverde" data-country="ES" aria-labelledby="factory-title">
+          <a class="home-project-cover" href="/projects/villaverde.html"><img src="/images/p7/cover.jpg" alt="Transformación fábrica de cervezas, Villaverde — Ver proyecto" width="1492" height="625" decoding="async" /></a>
+          <h2 id="factory-title" class="home-project-caption"><a href="/projects/villaverde.html">TRANSFORMACIÓN FÁBRICA DE CERVEZAS / <span class="project-country">ES</span></a></h2>
         </article>
-        <article class="project project-house" aria-labelledby="house-title">
-          <div class="project-heading">
-            <p class="project-number">03</p>
-            <h2 id="house-title"><a href="/projects/house-in-the-clearing.html">HOUSE IN THE CLEARING</a></h2>
-          </div>
-          <a class="project-media home-project-cover house-media" href="/projects/house-in-the-clearing.html"><img src="/images/p5/cover.jpg" alt="House in the Clearing — Ver proyecto" width="2430" height="2430" decoding="async" /></a>
+        <article class="home-project" data-project="house-in-the-clearing" data-country="ES" aria-labelledby="house-title">
+          <a class="home-project-cover" href="/projects/house-in-the-clearing.html"><img src="/images/p5/cover.jpg" alt="House in the Clearing — Ver proyecto" width="2430" height="2430" decoding="async" /></a>
+          <h2 id="house-title" class="home-project-caption"><a href="/projects/house-in-the-clearing.html">HOUSE IN THE CLEARING / <span class="project-country">ES</span></a></h2>
         </article>
-        <article class="project project-third" aria-labelledby="third-title">
-          <div class="project-heading">
-            <p class="project-number">04</p>
-            <h2 id="third-title"><a href="/projects/catedral.html">CATEDRAL</a></h2>
-          </div>
-          <a class="project-media home-project-cover third-media" href="/projects/catedral.html"><img src="/images/p6/home-cover.jpg" alt="CATEDRAL — Ver proyecto" width="7016" height="3946" decoding="async" /></a>
+        <article class="home-project" data-project="catedral" data-country="ES" aria-labelledby="third-title">
+          <a class="home-project-cover" href="/projects/catedral.html"><img src="/images/p6/home-cover.jpg" alt="CATEDRAL — Ver proyecto" width="7016" height="3946" decoding="async" /></a>
+          <h2 id="third-title" class="home-project-caption"><a href="/projects/catedral.html">CATEDRAL / <span class="project-country">ES</span></a></h2>
         </article>
       </section>
 
-      <!-- OBJECTS -->
-      <section id="objects" class="objects" aria-labelledby="objects-title">
-        <h2 id="objects-title" class="section-label">SELECTED OBJECTS</h2>
-        <div class="objects-grid">
-          <div class="object-media" role="img" aria-label="Espacio reservado para el primer objeto"></div>
-          <div class="object-media" role="img" aria-label="Espacio reservado para el segundo objeto"></div>
-          <div class="object-media" role="img" aria-label="Espacio reservado para el tercer objeto"></div>
-        </div>
-        <span class="view-all" aria-disabled="true">VIEW ALL</span>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="about" aria-labelledby="about-title">
-        <h2 id="about-title">MARIO RUBIO</h2>
-        <p>BIOGRAPHY COMING SOON</p>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="section-label">CONTACT</h2>
-        <p class="contact-subtitle">GET IN TOUCH</p>
-        <form class="contact-form" action="https://formspree.io/f/mppwkyjv" method="POST">
-          <div class="contact-field">
-            <label for="contact-name">NAME</label>
-            <input id="contact-name" name="name" type="text" autocomplete="name" />
-          </div>
-          <div class="contact-field">
-            <label for="contact-email">EMAIL</label>
-            <input id="contact-email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="contact-field">
-            <label for="contact-subject">SUBJECT</label>
-            <input id="contact-subject" name="subject" type="text" required />
-          </div>
-          <div class="contact-field">
-            <label for="contact-message">MESSAGE</label>
-            <textarea id="contact-message" name="message" rows="5" required></textarea>
-          </div>
-          <input type="text" name="_gotcha" hidden tabindex="-1" autocomplete="off" />
-          <button class="contact-send" type="submit" disabled>SEND</button>
-          <p class="contact-status" role="status" aria-live="polite" aria-atomic="true"></p>
-        </form>
-        <div class="contact-socials">
-          <a href="https://www.instagram.com/mariorubiosolana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile of Mario Rubio">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="18" height="18" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/mario-rubio-solana-8a35233a6/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of Mario Rubio">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
-              <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.52V3.52C22 2.68 21.31 2 20.45 2ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.52 2.79-1.52 2.98 0 3.58 1.96 3.58 4.51v5.26Z" />
-            </svg>
-          </a>
-        </div>
-      </section>
     </main>
   </body>
 </html>
