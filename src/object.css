@@ -43,12 +43,22 @@
 @media (max-width: 767px) {
   .objects-canvas { padding-top: 140px; padding-bottom: 80px; }
   .objects-composition { gap: 96px; }
-  .objects-composition--paired { width: 92%; flex-direction: column; gap: 64px; }
+  .objects-composition--paired { width: 94%; flex-direction: row; flex-wrap: nowrap; gap: 3vw; }
   .objects-composition--paired .object-piece--right { --object-margin-top: 0px; }
   .objects-composition .object-piece {
     width: min(var(--object-mobile-width, 76vw), var(--object-max-width, 620px), 100%);
     align-self: center;
     margin-inline-start: 0;
+  }
+  .objects-composition--paired .object-piece {
+    min-width: 0;
+    align-self: flex-start;
+  }
+  .objects-composition--paired .object-piece--medium { width: 43vw; }
+  .objects-composition--paired .object-piece--small { width: 41vw; }
+  .objects-composition--paired .object-caption {
+    font-size: clamp(9px, 2.8vw, 12px);
+    overflow-wrap: anywhere;
   }
 }
 
