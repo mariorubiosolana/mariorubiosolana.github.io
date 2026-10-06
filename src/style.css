@@ -9,9 +9,11 @@
   --gutter: clamp(20px, 4vw, 72px);
   --section-space: clamp(100px, 15vw, 240px);
   --placeholder: #ededed;
+  --footer-height: 48px;
+  --footer-safe-area: env(safe-area-inset-bottom, 0px);
 }
 * { box-sizing: border-box; }
-body { margin: 0; }
+body { margin: 0; padding-bottom: calc(var(--footer-height) + var(--footer-safe-area) + 16px); }
 .home-page, .content-page {
   --font-main: "Inter", sans-serif;
   --weight-light: 200;
@@ -45,22 +47,43 @@ a:hover { text-decoration: underline; text-underline-offset: 6px; }
 a:focus-visible { outline: 1px solid currentColor; outline-offset: 7px; }
 ::selection { background: #111; color: #fff; }
 section { scroll-margin-top: 80px; }
+/* Shared fixed footer; body reserves its height plus a safety margin. */
+.site-footer { position: fixed; left: 0; bottom: 0; width: 100%; height: calc(var(--footer-height) + var(--footer-safe-area)); z-index: 1100; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 clamp(28px, 2vw, 36px) var(--footer-safe-area); border-top: 1px solid currentColor; background: transparent; color: #000; font-family: "Inter", sans-serif; line-height: 1; }
+.site-footer-identity { display: flex; align-items: center; gap: 14px; white-space: nowrap; }
+.site-footer-brand { font-size: 14px; font-weight: 500; font-variation-settings: "wght" 500; letter-spacing: .06em; }
+.site-footer-name { font-size: 12px; font-weight: 350; font-variation-settings: "wght" 350; letter-spacing: .02em; }
+.site-footer-social { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; }
+.site-footer-social svg { display: block; width: 20px; height: 20px; }
+.site-footer a:hover { text-decoration: none; }
+.site-footer a:focus-visible { outline-offset: 2px; }
+@media (hover: hover) {
+  .site-footer a:hover { opacity: .75; }
+}
+@media (max-width: 767px) {
+  :root { --footer-height: 42px; }
+  .site-footer { padding-inline: 12px; gap: 8px; }
+  .site-footer-identity { gap: 10px; }
+  .site-footer-brand { font-size: 12px; }
+  .site-footer-name { font-size: 10px; }
+  .site-footer-social { width: 40px; height: 40px; }
+  .site-footer-social svg { width: 18px; height: 18px; }
+}
 .skip-link { position: fixed; top: 16px; left: 16px; padding: 12px; background: #fff; transform: translateY(-200%); z-index: 10; }
 .skip-link:focus { transform: none; }
-.site-header { --header-gutter: 38px; position: absolute; top: 0; left: 0; width: 100%; z-index: 2; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; background: transparent; color: var(--project-hero-ink, #111); padding: 26px var(--header-gutter); font-family: "Inter", sans-serif; font-weight: 320; font-variation-settings: "wght" 320; }
-.site-header nav { display: flex; gap: clamp(8px, 1vw, 20px); }
-.site-header a { font-size: clamp(34px, 3.2vw, 54px); line-height: 1.2; letter-spacing: .015em; }
-.site-header .site-brand { font-size: clamp(42px, 4vw, 68px); font-weight: 350; font-variation-settings: "wght" 350; letter-spacing: .08em; white-space: nowrap; }
-.site-header--in-flow { position: relative; }
+.site-header { --header-gutter: clamp(24px, 2vw, 32px); position: fixed; top: 0; left: 0; width: 100%; z-index: 1100; display: flex; align-items: flex-start; justify-content: space-between; gap: 4vw; background: transparent; color: var(--project-hero-ink, #111); padding: 24px var(--header-gutter); font-family: "Inter", sans-serif; font-weight: 400; font-variation-settings: "wght" 400; }
+/* OBJECTS follows MRS at the header gap; INFO reaches the right edge. */
+.site-header nav { display: flex; flex: 1; align-items: flex-start; justify-content: space-between; gap: 16px; min-width: 0; }
+.site-header a { font-size: clamp(63px, 5.4vw, 96px); line-height: 1.1; letter-spacing: -.01em; white-space: nowrap; }
+.site-header .site-brand { flex-shrink: 0; font-size: clamp(76px, 6.72vw, 118px); font-weight: 450; font-variation-settings: "wght" 450; letter-spacing: .06em; }
 .site-nav-link { position: relative; opacity: .65; }
 .site-nav-link.is-active, .site-nav-link:hover, .site-nav-link:focus-visible { opacity: 1; }
 .site-nav-link:hover { text-decoration: none; }
 .site-nav-link.is-active::after { content: ""; position: absolute; left: 0; bottom: -.12em; width: 100%; height: 1px; background: currentColor; }
 @media (min-width: 768px) and (max-width: 1199px) {
-  .site-header { --header-gutter: 28px; gap: 16px; }
-  .site-header nav { gap: 8px; }
-  .site-header a { font-size: clamp(22px, 2.7vw, 32px); }
-  .site-header .site-brand { font-size: clamp(28px, 3.5vw, 42px); }
+  .site-header { --header-gutter: 24px; gap: 4vw; }
+  .site-header nav { gap: 12px; }
+  .site-header a { font-size: clamp(36px, 5.4vw, 63px); }
+  .site-header .site-brand { font-size: clamp(49px, 6.72vw, 76px); }
 }
 
 /* HOME PROJECTS */
@@ -98,40 +121,12 @@ section { scroll-margin-top: 80px; }
 .info h1 { font-size: clamp(28px, 3.5vw, 52px); letter-spacing: .06em; }
 .info p { margin-top: 28px; font-size: 9px; line-height: 1.5; letter-spacing: .14em; color: #666; }
 
-/* CONTACT */
-.contact { text-align: center; padding: 60px var(--gutter) 100px; }
-.contact-subtitle { margin-top: 20px; font-size: 9px; letter-spacing: .12em; }
-.contact-form { width: min(42vw, 620px); margin: 64px auto 0; }
-.contact-field + .contact-field { margin-top: 36px; }
-.contact-field label { display: block; font-size: 10px; line-height: 1.6; letter-spacing: .12em; }
-.contact-field input, .contact-field textarea { display: block; box-sizing: border-box; width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #111; border-radius: 0; background: transparent; color: #111; font: inherit; font-size: 16px; line-height: 1.5; text-align: left; }
-.contact-field textarea { min-height: 140px; resize: vertical; }
-.contact-field input::placeholder, .contact-field textarea::placeholder { color: #888; }
-.contact-field input:focus-visible, .contact-field textarea:focus-visible, .contact-send:focus-visible { outline: 1px solid #111; outline-offset: 6px; }
-.contact-send { display: block; min-width: 88px; min-height: 44px; margin: 36px auto 0; padding: 12px; border: none; background: none; color: #111; font: inherit; font-size: 12px; letter-spacing: .12em; cursor: pointer; transition: opacity .2s ease; }
-.contact-send:disabled { cursor: wait; }
-.contact-status { min-height: 16px; margin-top: 12px; font-size: 10px; line-height: 1.6; letter-spacing: .08em; }
-.contact-socials { display: flex; justify-content: center; gap: 28px; margin-top: 80px; }
-.contact-socials a { display: grid; place-items: center; width: 44px; height: 44px; color: #000; transition: opacity .2s ease; }
-.contact-socials svg { display: block; width: 24px; height: 24px; }
-@media (hover: hover) {
-  .contact-send:not(:disabled):hover, .contact-socials a:hover { opacity: .5; }
-}
 @media (max-width: 767px) {
-  .contact { padding-inline: 0; }
-  .contact-form { width: 90vw; }
-  .contact-socials svg { width: 26px; height: 26px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .contact-send, .contact-socials a { transition: none; }
-}
-
-@media (max-width: 767px) {
-  .site-header { --header-gutter: clamp(12px, 4vw, 20px); flex-direction: column; align-items: center; gap: 18px; }
-  .site-header nav { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 10px 4px; }
-  .site-header .site-brand { font-size: clamp(22px, 6vw, 28px); }
-  .site-header a { font-size: clamp(16px, 4.2vw, 20px); }
-  .project-page .site-header { position: relative; color: #111; }
+  .site-header { --header-gutter: clamp(10px, 3vw, 20px); padding-block: 20px; gap: 3vw; }
+  .site-header nav { gap: 2vw; }
+  .site-header .site-brand { font-size: clamp(25px, 6.72vw, 49px); }
+  .site-header a { font-size: clamp(16px, 5.04vw, 36px); }
+  .project-page .site-header { color: #111; }
   .home-project + .home-project { margin-top: clamp(90px, 18svh, 150px); }
   .home-project-caption { margin-top: 20px; font-size: 12px; }
   .featured-project-image { height: auto; aspect-ratio: 8 / 5; }
@@ -139,5 +134,4 @@ section { scroll-margin-top: 80px; }
   .home-project-cover { width: min(92vw, 1250px); }
   .objects-list { width: 92vw; gap: 100px; margin-top: 40px; }
   .info { padding-block: 80px 100px; }
-  .contact { padding-block: 40px 72px; }
 }
