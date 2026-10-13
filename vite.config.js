@@ -23,9 +23,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: fileURLToPath(new URL('./index.html', import.meta.url)),
-        objects: fileURLToPath(new URL('./objects.html', import.meta.url)),
-        woodenVoid: fileURLToPath(new URL('./objects/wooden-void.html', import.meta.url)),
-        foldedVoid: fileURLToPath(new URL('./objects/folded-void.html', import.meta.url)),
+        // objects: fileURLToPath(new URL('./objects.html', import.meta.url)),
+        // woodenVoid: fileURLToPath(new URL('./objects/wooden-void.html', import.meta.url)),
+        // foldedVoid: fileURLToPath(new URL('./objects/folded-void.html', import.meta.url)),
         info: fileURLToPath(new URL('./info.html', import.meta.url)),
         theLine: fileURLToPath(new URL('./projects/the-line.html', import.meta.url)),
         houseInTheClearing: fileURLToPath(new URL('./projects/house-in-the-clearing.html', import.meta.url)),
